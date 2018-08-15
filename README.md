@@ -12,7 +12,7 @@ Download the [github archive](https://github.com/VanLex/MySql-Backup-Wndows/arch
 * Change the value of the variable `$cnfFile` to the path to your *my.cnf* file.
 * Change the value of the variable `$backupDir` to the path to the folder where the backup files will be stored.
 * If required change the value of the variable `$mysqldump` to the path to *mysqldump.exe* file.
-* If required change the value of the variable `$mysqlDataDir` to the path to MySql data files directory. Is used to get only the names of the MySQL databases.
+* If required change the value of the variable `$mysql` to the path to *mysql.exe* file.
 * If required change the value of the variable `$zip` to the path to *7z.exe* file.
 
 #### On my.cnf file:
