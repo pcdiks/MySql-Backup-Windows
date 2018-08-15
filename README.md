@@ -19,5 +19,18 @@ Download the [github archive](https://github.com/pcdiks/MySql-Backup-Windows/arc
 #### On my.cnf file:
 In section `[client]` change the user and password to your backup user. I recommend create user for backup with Limit to hosts Matching: *localhost* and Administrative Roles: BackupAdmin(Global Privileges: EVENT, LOCK TABLES, SELECT, SHOW DATABASES).
 
+Example my.cnf
+```
+[client]
+user="user"
+password="password"
+host="host.domain.name"
+
+[mysqldump]
+single-transaction
+add-drop-database
+add-drop-table`
+```
+
 #### On Task Scheduler:
 Сreate a task to run the *mysqlbackup.ps1* script with the time necessary for you.
