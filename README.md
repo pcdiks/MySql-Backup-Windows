@@ -4,6 +4,7 @@ Backup MySQL databases and gzip the output sql files. Using PowerShell script la
 ### Requirements
 * [Powershell](http://support.microsoft.com/kb/968929)
 * [7-Zip](http://www.7-zip.org/)
+* [MySql Workbench](https://www.mysql.com/products/workbench/) if not run on the mysql server
 
 ### Setup
 Download the [github archive](https://github.com/VanLex/MySql-Backup-Wndows/archive/master.zip) and extract to your script folder.
