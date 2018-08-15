@@ -1,9 +1,12 @@
-$cnfFile = "C:\scripts\my.cnf" #Config file
-$backupDir = "C:\SQLBackup" #Backup Directory
-$mysqldump = "C:\Program Files\MySQL\MySQL Server 5.6\bin\mysqldump.exe" #Patch to mysqldump.exe
-$mysqlDataDir = "C:\Documents and Settings\All Users\MySQL\MySQL Server 5.6\data" #Patch to datatbases files directory
+$cnfFile = Join-Path -Path $PSScriptRoot -ChildPath my.cnf #Config file
+$backupDir = "E:\Shares\Backup\SQLServers" #Backup Directory
+$mysqldump = "C:\Program Files\MySQL\MySQL Workbench 8.0 CE\mysqldump.exe" #Patch to mysqldump.exe
+#$mysqlDataDir = "C:\Documents and Settings\All Users\MySQL\MySQL Server 5.6\data" #Patch to datatbases files directory
 $zip = "C:\Program Files\7-Zip\7z.exe" #7-Zip Command line tool
 
+& $mysqldump --defaults-extra-file=$cnfFile --all-databases
+
+<#
 #Get only names of the databases folders
 $sqlDbDirList = ls -path $mysqlDataDir | ?{ $_.PSIsContainer } | Select-Object Name
 foreach($dbDir in $sqlDbDirList) {
@@ -21,3 +24,4 @@ foreach($dbDir in $sqlDbDirList) {
     & $zip a -tgzip $zipFile $sqlFile
     del $sqlFile
 }
+#>
