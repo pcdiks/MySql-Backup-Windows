@@ -29,7 +29,7 @@ host="host.domain.name"
 [mysqldump]
 single-transaction
 add-drop-database
-add-drop-table`
+add-drop-table
 ```
 
 #### On Task Scheduler:
