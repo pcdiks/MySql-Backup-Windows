@@ -33,4 +33,4 @@ add-drop-table
 ```
 
 #### On Task Scheduler:
-Сreate a task to run the *mysqlbackup.ps1* script with the time necessary for you.
+Сreate a task to run the *mysqlbackup.ps1* script. Import the XML file and update to your environment.
