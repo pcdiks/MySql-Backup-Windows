@@ -10,14 +10,13 @@ Backup MySQL databases and gzip the output sql files. Using PowerShell script la
 Download the [github archive](https://github.com/pcdiks/MySql-Backup-Windows/archive/master.zip) and extract to your script folder.
 
 #### On mysqlbackup.ps1 file:
-* Change the value of the variable `$cnfFile` to the path to your *my.cnf* file.
 * Change the value of the variable `$backupDir` to the path to the folder where the backup files will be stored.
 * If required change the value of the variable `$mysqldump` to the path to *mysqldump.exe* file.
 * If required change the value of the variable `$mysql` to the path to *mysql.exe* file.
 * If required change the value of the variable `$zip` to the path to *7z.exe* file.
 
 #### On my.cnf file:
-In section `[client]` change the user and password to your backup user. I recommend create user for backup with Limit to hosts Matching: *localhost* and Administrative Roles: BackupAdmin(Global Privileges: EVENT, LOCK TABLES, SELECT, SHOW DATABASES).
+In section `[client]` change the user and password to your backup user. I recommend create user for backup with limit to hosts matching: *localhost* or the *server* where you run the script and Administrative Roles: BackupAdmin(Global Privileges: EVENT, LOCK TABLES, SELECT, SHOW DATABASES).
 
 Example my.cnf
 ```
