@@ -27,7 +27,7 @@ foreach($dbDir in $sqlDbDirList) {
     Remove-Item $sqlFile
 }
 
-#Backup ZM database
+#Backup ZM database on different host -> my-zm.cnf
 $dbdir="zm"
 $dbBackupDir = $backupDir + "\" + $dbDir
 #If folder not exist, create it
