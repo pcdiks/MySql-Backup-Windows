@@ -1,4 +1,5 @@
 $cnfFile = Join-Path -Path $PSScriptRoot -ChildPath my.cnf #Config file
+$cnf2 = Join-Path -Path $PSScriptRoot -ChildPath my-zm.cnf #Config file
 $backupDir = "E:\Shares\Backup\SQLServers" #Backup Directory
 $mysqldump = "C:\Program Files\MySQL\MySQL Workbench 8.0 CE\mysqldump.exe" #Patch to mysqldump.exe
 $mysql = "C:\Program Files\MySQL\MySQL Workbench 8.0 CE\mysql.exe"
@@ -25,3 +26,19 @@ foreach($dbDir in $sqlDbDirList) {
     & $zip a -tgzip $zipFile $sqlFile
     Remove-Item $sqlFile
 }
+
+#Backup ZM database
+$dbdir="zm"
+$dbBackupDir = $backupDir + "\" + $dbDir
+#If folder not exist, create it
+if (!(Test-Path -path $dbBackupDir -PathType Container)) {
+    New-Item -Path $dbBackupDir -ItemType Directory
+}
+
+$dbBackupFile = $dbBackupDir + "\" + $dbDir + "_" + (Get-Date -format "yyyyMMdd_HHmmss")
+#Dump to sql file and arhive it
+$sqlFile = $dbBackupFile + ".sql"
+& $mysqldump --defaults-extra-file=$cnf2 -B $dbDir -r $sqlFile -f
+$zipFile = $dbBackupFile + ".sql.gz"
+& $zip a -tgzip $zipFile $sqlFile
+Remove-Item $sqlFile
